@@ -1,15 +1,25 @@
-import dotenv from 'dotenv'
-import http, { Server } from 'http'
+import http from 'http'
+
+import { config, initAppEnv } from './config/env'
+import { connectDB } from './config/database'
 import app from './app'
 
-// load .env variables
-dotenv.config()
+// Init app env
+try {
+  initAppEnv()
+} catch (e) {
+  console.error('\n\nError: dotenv `.env` not found\n\n')
+  process.exit(1)
+}
 
-const PORT = process.env.PORT || 3000
-const APP_NAME = process.env.APP_NAME || 'server'
+// Connect to database
+connectDB(() => {
+  // Create app server
+  const server = http.createServer(app)
 
-const server: Server = http.createServer(app)
-
-server.listen(PORT, () => {
-  console.log(`🚀 [${APP_NAME}]: Web server listening on port ${PORT}`)
+  server.listen(config.port, () => {
+    console.log(
+      `🚀 [${config.appName}]: Web server listening on port ${config.port}`,
+    )
+  })
 })

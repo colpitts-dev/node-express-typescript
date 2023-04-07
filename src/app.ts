@@ -3,7 +3,7 @@ import express, { json, Application } from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 
-import rootRouter from './routes/index.router'
+import rootRouter from './routes/index.routes'
 
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000'
 
@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname, '../public')))
 
 app.use('/api', rootRouter)
 
+// Catchall route for frontend routing
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'))
 })
