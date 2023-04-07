@@ -1,10 +1,6 @@
-import express from 'express'
 import request from 'supertest'
 
-import rootRouter from '../index.router'
-
-const app = express()
-app.use('/api', rootRouter)
+import app from '../app'
 
 describe('API health check', () => {
   it('GET /api - success', async () => {
