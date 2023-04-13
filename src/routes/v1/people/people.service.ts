@@ -1,4 +1,4 @@
-import { Person, PersonInput } from '../models/person.model'
+import { Person, PersonInput } from '../../../models/person.model'
 
 export const getAllPeople = async () => {
   return await Person.find()

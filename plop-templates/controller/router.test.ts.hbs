@@ -1,0 +1,57 @@
+import request from 'supertest'
+
+import app from '../../../app'
+import { {{ singularPascal controller }}, {{ singularPascal controller }}Document } from '../../../models/{{ singularCamel controller }}.model'
+
+describe('{{ singularPascal controller }} API', () => {
+  let doc: {{ singularPascal controller }}Document
+
+  beforeAll(async () => {
+    doc = new {{ singularPascal controller }}({
+      title: 'test-doc'
+    })
+    await doc.save()
+  })
+
+  it('GET /api/v1/{{ pluralizeCamel controller }} - success', async () => {
+    const { body } = await request(app)
+      .get('/api/v1/{{ pluralizeCamel controller }}')
+      .set({ Accept: 'application/json' })
+
+    const { data } = body
+    const { {{ pluralizeCamel controller }} } = data
+
+    expect({{ pluralizeCamel controller }}.length).toEqual(1)
+    expect({{ pluralizeCamel controller }}[0].title).toEqual('test-doc')
+  })
+
+  it('POST /api/v1/{{ pluralizeCamel controller }} - success', async () => {
+    const { status } = await request(app)
+      .post('/api/v1/{{ pluralizeCamel controller }}')
+      .send({
+        title: 'test-doc-create'
+      })
+      .set({ Accept: 'application/json' })
+
+    expect(status).toEqual(201)
+  })
+
+  it('PUT /api/v1/{{ pluralizeCamel controller }}/:id - success', async () => {
+    const { status } = await request(app)
+      .put(`/api/v1/{{ pluralizeCamel controller }}/${doc._id}`)
+      .send({
+        title: 'test-doc-update',
+      })
+      .set({ Accept: 'application/json' })
+
+    expect(status).toEqual(204)
+  })
+
+  it('DELETE /api/v1/{{ pluralizeCamel controller }}/:id - success', async () => {
+    const { status } = await request(app)
+      .delete(`/api/v1/{{ pluralizeCamel controller }}/${doc._id}`)
+      .set({ Accept: 'application/json' })
+
+    expect(status).toEqual(204)
+  })
+})

@@ -1,11 +1,11 @@
 import request from 'supertest'
 
-import app from '../app'
+import app from '../../app'
 
 describe('API health check', () => {
-  it('GET /api - success', async () => {
+  it('GET /api/v1 - success', async () => {
     const { body } = await request(app)
-      .get('/api')
+      .get('/api/v1')
       .set({ Accept: 'application/json' })
 
     expect(body).toEqual({

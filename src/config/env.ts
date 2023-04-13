@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 
 const env = dotenv.config()
 
-export const initAppEnv = () => {
+export const initEnv = () => {
   if (env.error) {
     throw env.error
   }

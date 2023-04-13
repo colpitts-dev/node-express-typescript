@@ -1,0 +1,21 @@
+import { Schema, model, Document } from 'mongoose'
+
+export interface {{singularPascal model}}Input {
+  title: string
+}
+
+export interface {{singularPascal model}}Document extends Document, {{singularPascal model}}Input {
+  createdAt: Date
+  updatedAt: Date
+}
+
+const {{singularPascal model}}Schema = new Schema<{{singularPascal model}}Document>(
+  {
+    title: { type: String, required: [true, 'Title is required.'] }
+  },
+  {
+    timestamps: true,
+  },
+)
+
+export const {{singularPascal model}} = model<{{singularPascal model}}Document>('{{singularPascal model}}', {{singularPascal model}}Schema)

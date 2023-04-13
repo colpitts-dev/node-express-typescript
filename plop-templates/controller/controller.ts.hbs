@@ -1,0 +1,49 @@
+import { Request, Response } from 'express'
+
+import * as {{ pluralizeCamel controller}}Service from './{{ pluralizeCamel controller}}.service'
+import { getErrorMessage } from '../../../utils/errors.util'
+
+export const getAll{{ pluralizePascal controller }} = async (req: Request, res: Response) => {
+  try {
+    const {{ pluralizeCamel controller}} = await {{ pluralizeCamel controller }}Service.getAll{{ pluralizePascal controller }}()
+    res.json({ data: { {{ pluralizeCamel controller}} } })
+  } catch (err) {
+    res.status(500).json({ error: getErrorMessage(err) })
+  }
+}
+
+export const create{{ singularPascal controller}} = async (req: Request, res: Response) => {
+  try {
+    const {{ pluralizeCamel controller}} = await {{ pluralizeCamel controller}}Service.create{{ singularPascal controller}}(req.body)
+    res.status(201).json({ data: { {{ pluralizeCamel controller}} } })
+  } catch (err) {
+    res.status(500).json({ error: getErrorMessage(err) })
+  }
+}
+
+export const get{{ singularPascal controller}}ById = async (req: Request, res: Response) => {
+  try {
+    const {{ pluralizeCamel controller}} = await {{ pluralizeCamel controller}}Service.get{{ singularPascal controller}}ById(req.params.id)
+    res.json({ data: { {{ pluralizeCamel controller}} } })
+  } catch (err) {
+    res.status(500).json({ error: getErrorMessage(err) })
+  }
+}
+
+export const update{{ singularPascal controller}} = async (req: Request, res: Response) => {
+  try {
+    await {{ pluralizeCamel controller}}Service.update{{ singularPascal controller}}(req.params.id, req.body)
+    res.status(204).end()
+  } catch (err) {
+    res.status(500).json({ error: getErrorMessage(err) })
+  }
+}
+
+export const delete{{ singularPascal controller}} = async (req: Request, res: Response) => {
+  try {
+    await {{ pluralizeCamel controller}}Service.delete{{ singularPascal controller}}(req.params.id)
+    res.status(204).end()
+  } catch (err) {
+    res.status(500).json({ error: getErrorMessage(err) })
+  }
+}

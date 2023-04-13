@@ -6,8 +6,10 @@ Open Source Node Express app written in TypeScript
 
 - `tsc` for type checking and compiling TS to JavaScript for production.
 - `eslint` and `prettier` for linting and formatting code
-- `jest` and `supertest` setup for integration testing API endpoints
+- `jest` and `supertest` for unit and integration tests
 - `validate` script to ensure health of code. #cleancode
+- `gen` script to generate models and controllers with unit and integration
+  tests
 
 <br/>
 
@@ -38,4 +40,5 @@ $ yarn test       # runs test suite
 $ yarn build      # builds the code for production
 $ yarn dev        # run the code in development mode
 $ yarn start      # runs the code in production mode
+$ yarn gen        # runs code generator templates
 ```

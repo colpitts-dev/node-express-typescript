@@ -1,12 +1,12 @@
 import http from 'http'
 
-import { config, initAppEnv } from './config/env'
+import { config, initEnv } from './config/env'
 import { connectDB } from './config/database'
 import app from './app'
 
 // Init app env
 try {
-  initAppEnv()
+  initEnv()
 } catch (e) {
   console.error('\n\nError: dotenv `.env` not found\n\n')
   process.exit(1)

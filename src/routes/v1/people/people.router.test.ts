@@ -1,7 +1,7 @@
 import request from 'supertest'
 
-import app from '../../app'
-import { Person, PersonDocument } from '../../models/person.model'
+import app from '../../../app'
+import { Person, PersonDocument } from '../../../models/person.model'
 
 describe('People API', () => {
   let john: PersonDocument
@@ -15,9 +15,9 @@ describe('People API', () => {
     await john.save()
   })
 
-  it('GET /api/people - success', async () => {
+  it('GET /api/v1/people - success', async () => {
     const { body } = await request(app)
-      .get('/api/people')
+      .get('/api/v1/people')
       .set({ Accept: 'application/json' })
 
     const { data } = body
@@ -27,9 +27,9 @@ describe('People API', () => {
     expect(people[0].email).toEqual('john.doe@example.com')
   })
 
-  it('POST /api/people - success', async () => {
+  it('POST /api/v1/people - success', async () => {
     const { status } = await request(app)
-      .post('/api/people')
+      .post('/api/v1/people')
       .send({
         username: 'jane.doe',
         email: 'jane@example.com',
@@ -40,9 +40,9 @@ describe('People API', () => {
     expect(status).toEqual(201)
   })
 
-  it('PUT /api/people/:id - success', async () => {
+  it('PUT /api/v1/people/:id - success', async () => {
     const { status } = await request(app)
-      .put(`/api/people/${john._id}`)
+      .put(`/api/v1/people/${john._id}`)
       .send({
         username: 'john.doe',
       })
@@ -51,9 +51,9 @@ describe('People API', () => {
     expect(status).toEqual(204)
   })
 
-  it('DELETE /api/people/:id - success', async () => {
+  it('DELETE /api/v1/people/:id - success', async () => {
     const { status } = await request(app)
-      .delete(`/api/people/${john._id}`)
+      .delete(`/api/v1/people/${john._id}`)
       .set({ Accept: 'application/json' })
 
     expect(status).toEqual(204)

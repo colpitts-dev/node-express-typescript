@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 
-import * as personService from '../../services/person.service'
-import { getErrorMessage } from '../../utils/errors.util'
+import * as personService from './people.service'
+import { getErrorMessage } from '../../../utils/errors.util'
 
 export const getAllPeople = async (req: Request, res: Response) => {
   try {
