@@ -1,16 +1,16 @@
 import { Router } from 'express'
 
 import {
-  getAll{{ pluralizePascal controller }},
-  create{{ singularPascal controller}},
-  get{{ singularPascal controller}}ById,
-  update{{ singularPascal controller}},
-  delete{{ singularPascal controller}},
+  getAll{{ pluralizeCaps controller }},
+  create{{ singularCaps controller}},
+  get{{ singularCaps controller}}ById,
+  update{{ singularCaps controller}},
+  delete{{ singularCaps controller}},
 } from './{{ pluralizeCamel controller }}.controller'
 
 const router = Router()
 
-router.route('/').get(getAll{{ pluralizePascal controller }}).post(create{{ singularPascal controller}})
-router.route('/:id').get(get{{ singularPascal controller}}ById).put(update{{ singularPascal controller}}).delete(delete{{ singularPascal controller}})
+router.route('/').get(getAll{{ pluralizeCaps controller }}).post(create{{ singularCaps controller}})
+router.route('/:id').get(get{{ singularCaps controller}}ById).put(update{{ singularCaps controller}}).delete(delete{{ singularCaps controller}})
 
 export default router

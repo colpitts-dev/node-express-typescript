@@ -1,15 +1,15 @@
 import { Schema, model, Document } from 'mongoose'
 
-export interface {{singularPascal model}}Input {
+export interface {{singularCaps model}}Input {
   title: string
 }
 
-export interface {{singularPascal model}}Document extends Document, {{singularPascal model}}Input {
+export interface {{singularCaps model}}Document extends Document, {{singularCaps model}}Input {
   createdAt: Date
   updatedAt: Date
 }
 
-const {{singularPascal model}}Schema = new Schema<{{singularPascal model}}Document>(
+const {{singularCaps model}}Schema = new Schema<{{singularCaps model}}Document>(
   {
     title: { type: String, required: [true, 'Title is required.'] }
   },
@@ -18,4 +18,4 @@ const {{singularPascal model}}Schema = new Schema<{{singularPascal model}}Docume
   },
 )
 
-export const {{singularPascal model}} = model<{{singularPascal model}}Document>('{{singularPascal model}}', {{singularPascal model}}Schema)
+export const {{singularCaps model}} = model<{{singularCaps model}}Document>('{{singularCaps model}}', {{singularCaps model}}Schema)

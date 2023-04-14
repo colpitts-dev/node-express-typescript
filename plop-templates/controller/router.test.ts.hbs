@@ -1,13 +1,13 @@
 import request from 'supertest'
 
 import app from '../../../app'
-import { {{ singularPascal controller }}, {{ singularPascal controller }}Document } from '../../../models/{{ singularCamel controller }}.model'
+import { {{ singularCaps controller }}, {{ singularCaps controller }}Document } from '../../../models/{{ singularCamel controller }}.model'
 
-describe('{{ singularPascal controller }} API', () => {
-  let doc: {{ singularPascal controller }}Document
+describe('{{ singularCaps controller }} API', () => {
+  let doc: {{ singularCaps controller }}Document
 
   beforeAll(async () => {
-    doc = new {{ singularPascal controller }}({
+    doc = new {{ singularCaps controller }}({
       title: 'test-doc'
     })
     await doc.save()
