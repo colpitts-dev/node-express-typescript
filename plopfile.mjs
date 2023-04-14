@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import pluralize from 'pluralize'
 
 export const camelCase = text => {
@@ -12,9 +11,13 @@ export const camelCase = text => {
     })
 }
 
-export const pascalCase = text => {
-  return text.replace(/\w+/g, function (w) {
-    return w[0].toUpperCase() + w.slice(1).toLowerCase()
+export const camelCaps = text => {
+  // (\w+)(?:\s+|$) mean at least of one character that build word
+  // followed by any number of spaces `\s+` or end of the string `$`
+  // capture the word as group and spaces will not create group `?:`
+  return text.replace(/(\w+)(?:\s+|$)/g, function (_, word) {
+    // uppercase first letter and add rest unchanged
+    return word.charAt(0).toUpperCase() + word.substr(1)
   })
 }
 
@@ -23,14 +26,14 @@ export default plop => {
   plop.setHelper('singularCamel', function (text) {
     return camelCase(pluralize.singular(text))
   })
-  plop.setHelper('singularPascal', function (text) {
-    return pascalCase(pluralize.singular(text))
+  plop.setHelper('singularCaps', function (text) {
+    return camelCaps(pluralize.singular(text))
   })
   plop.setHelper('pluralizeCamel', function (text) {
     return camelCase(pluralize(text))
   })
-  plop.setHelper('pluralizePascal', function (text) {
-    return pascalCase(pluralize(text))
+  plop.setHelper('pluralizeCaps', function (text) {
+    return camelCaps(pluralize(text))
   })
 
   // model generator

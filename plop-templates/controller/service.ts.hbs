@@ -1,21 +1,21 @@
-import { {{ singularPascal controller}}, {{ singularPascal controller}}Input } from '../../../models/{{ singularCamel controller}}.model'
+import { {{ singularCaps controller}}, {{ singularCaps controller}}Input } from '../../../models/{{ singularCamel controller}}.model'
 
-export const getAll{{ singularPascal controller}}s = async () => {
-  return await {{ singularPascal controller}}.find()
+export const getAll{{ singularCaps controller}}s = async () => {
+  return await {{ singularCaps controller}}.find()
 }
 
-export const create{{ singularPascal controller}} = async (new{{ singularPascal controller}}: {{ singularPascal controller}}Input) => {
-  return await {{ singularPascal controller}}.create(new{{ singularPascal controller}})
+export const create{{ singularCaps controller}} = async (new{{ singularCaps controller}}: {{ singularCaps controller}}Input) => {
+  return await {{ singularCaps controller}}.create(new{{ singularCaps controller}})
 }
 
-export const get{{ singularPascal controller}}ById = async (id: string) => {
-  return await {{ singularPascal controller}}.findById(id)
+export const get{{ singularCaps controller}}ById = async (id: string) => {
+  return await {{ singularCaps controller}}.findById(id)
 }
 
-export const update{{ singularPascal controller}} = async (id: string, updated{{ singularPascal controller}}: {{ singularPascal controller}}Input) => {
-  return await {{ singularPascal controller}}.findByIdAndUpdate(id, updated{{ singularPascal controller}})
+export const update{{ singularCaps controller}} = async (id: string, updated{{ singularCaps controller}}: {{ singularCaps controller}}Input) => {
+  return await {{ singularCaps controller}}.findByIdAndUpdate(id, updated{{ singularCaps controller}})
 }
 
-export const delete{{ singularPascal controller}} = async (id: string) => {
-  return await {{ singularPascal controller}}.findByIdAndDelete(id)
+export const delete{{ singularCaps controller}} = async (id: string) => {
+  return await {{ singularCaps controller}}.findByIdAndDelete(id)
 }

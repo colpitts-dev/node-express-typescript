@@ -3,45 +3,45 @@ import { Request, Response } from 'express'
 import * as {{ pluralizeCamel controller}}Service from './{{ pluralizeCamel controller}}.service'
 import { getErrorMessage } from '../../../utils/errors.util'
 
-export const getAll{{ pluralizePascal controller }} = async (req: Request, res: Response) => {
+export const getAll{{ pluralizeCaps controller }} = async (req: Request, res: Response) => {
   try {
-    const {{ pluralizeCamel controller}} = await {{ pluralizeCamel controller }}Service.getAll{{ pluralizePascal controller }}()
+    const {{ pluralizeCamel controller}} = await {{ pluralizeCamel controller }}Service.getAll{{ pluralizeCaps controller }}()
     res.json({ data: { {{ pluralizeCamel controller}} } })
   } catch (err) {
     res.status(500).json({ error: getErrorMessage(err) })
   }
 }
 
-export const create{{ singularPascal controller}} = async (req: Request, res: Response) => {
+export const create{{ singularCaps controller}} = async (req: Request, res: Response) => {
   try {
-    const {{ pluralizeCamel controller}} = await {{ pluralizeCamel controller}}Service.create{{ singularPascal controller}}(req.body)
+    const {{ pluralizeCamel controller}} = await {{ pluralizeCamel controller}}Service.create{{ singularCaps controller}}(req.body)
     res.status(201).json({ data: { {{ pluralizeCamel controller}} } })
   } catch (err) {
     res.status(500).json({ error: getErrorMessage(err) })
   }
 }
 
-export const get{{ singularPascal controller}}ById = async (req: Request, res: Response) => {
+export const get{{ singularCaps controller}}ById = async (req: Request, res: Response) => {
   try {
-    const {{ pluralizeCamel controller}} = await {{ pluralizeCamel controller}}Service.get{{ singularPascal controller}}ById(req.params.id)
+    const {{ pluralizeCamel controller}} = await {{ pluralizeCamel controller}}Service.get{{ singularCaps controller}}ById(req.params.id)
     res.json({ data: { {{ pluralizeCamel controller}} } })
   } catch (err) {
     res.status(500).json({ error: getErrorMessage(err) })
   }
 }
 
-export const update{{ singularPascal controller}} = async (req: Request, res: Response) => {
+export const update{{ singularCaps controller}} = async (req: Request, res: Response) => {
   try {
-    await {{ pluralizeCamel controller}}Service.update{{ singularPascal controller}}(req.params.id, req.body)
+    await {{ pluralizeCamel controller}}Service.update{{ singularCaps controller}}(req.params.id, req.body)
     res.status(204).end()
   } catch (err) {
     res.status(500).json({ error: getErrorMessage(err) })
   }
 }
 
-export const delete{{ singularPascal controller}} = async (req: Request, res: Response) => {
+export const delete{{ singularCaps controller}} = async (req: Request, res: Response) => {
   try {
-    await {{ pluralizeCamel controller}}Service.delete{{ singularPascal controller}}(req.params.id)
+    await {{ pluralizeCamel controller}}Service.delete{{ singularCaps controller}}(req.params.id)
     res.status(204).end()
   } catch (err) {
     res.status(500).json({ error: getErrorMessage(err) })
